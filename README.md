@@ -1,2 +1,2 @@
 # dot_files
-my dot files
+my mac dot files
