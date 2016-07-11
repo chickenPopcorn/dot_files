@@ -2,8 +2,8 @@
 *
 
 # But not these files...
-!.gitignore
 !.bash_profile
 !.bashrc
 !.git-completion.sh
 !.vimrc
+!.gitignore_global

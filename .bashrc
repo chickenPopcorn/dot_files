@@ -45,7 +45,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias nycdc6='ssh -X gongyunrou@216.230.228.88'
+alias clic='ssh -X rx2119@clic.cs.columbia.edu'
 
 # sublime command line tool
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
