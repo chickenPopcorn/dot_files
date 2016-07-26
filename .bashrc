@@ -8,11 +8,9 @@ export TERM="screen-256color"
 umask 0077
 
 PS1="\[\033[96m\]\u\[\033[m\]@\[\033[92m\]\h \A:\[\033[93;1m\]\W\[\033[m\]\$ "
-#PS1="[\u@\h \A]\[\033[01;14m\]\W\[\033[0m\]"
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
-
 
 # append to the history file, don't overwrite it
 shopt -s histappend
