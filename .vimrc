@@ -1,6 +1,4 @@
 " Swtich Cap Lock to ESC keys
-" for linux run the following command
-" dconf write /org/gnome/desktop/input-sources/xkb-options \"['caps:escape']\"
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
@@ -93,10 +91,6 @@ endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
-set nocompatible              " required
-filetype off                  " required
-
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
 " Enable folding
 set foldmethod=indent
@@ -104,18 +98,28 @@ set foldlevel=99
 " Enable folding with the spacebar
 nnoremap <space> a
 
-au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set fileformat=unix
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set fileformat=unix
 
-"define BadWhitespace before using in a match
+autocmd!
+autocmd BufRead, BufNewFile *.h, *.c set filetype=c.doxygen
+
+" Replace ~/.vim/.ycm_extra_cof.py with path to default file
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+
+" Highlight line break
+set colorcolumn=110
+highlight ColorColumn ctermbg=darkgray
+
+" Define BadWhitespace before using in a match
 highlight BadWhitespace ctermbg=red guibg=darkred
 
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /\s\+$/
 
 " Enable folding with the spacebar
 nnoremap <space> za
@@ -128,3 +132,38 @@ syntax on
 set showtabline=1
 set noshowmode
 set t_Co=256
+
+" Vundle vimrc
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+"
+let g:ycm_confirm_extra_conf = 0
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'scrooloose/nerdtree'
+map <C-n> :NERDTreeToggle<CR>
+Plugin 'jistr/vim-nerdtree-tabs'
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+
+" start NERDTree when open vim
+autocmd VimEnter * NERDTree
+" cursor in main window
+autocmd VimEnter * wincmd p
+
+" git integration
+Plugin 'tpope/vim-fugitive'
+
+
+" End configuration, makes the plugins available
+call vundle#end()
+filetype plugin indent on
