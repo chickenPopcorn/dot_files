@@ -73,7 +73,7 @@ alias du='du -h'
 alias mkdir='mkdir -p'
 
 # sublime command line tool
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+alias jn='jupyter notebook'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
