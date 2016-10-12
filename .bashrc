@@ -33,8 +33,6 @@ shopt -s checkwinsize
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
 
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
@@ -72,8 +70,6 @@ alias df='df -h'
 alias du='du -h'
 alias mkdir='mkdir -p'
 
-# sublime command line tool
-alias jn='jupyter notebook'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -101,6 +97,4 @@ fi
 
 # export for python env
 export PIP_REQUIRE_VIRTUALENV=false
-
-# export PATH varible
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+complete -C aws_completer aws
