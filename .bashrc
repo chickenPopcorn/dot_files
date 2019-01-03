@@ -94,7 +94,3 @@ fi
 if [ -f ~/.git-completion.sh ]; then
   source ~/.git-completion.sh
 fi
-
-# export for python env
-export PIP_REQUIRE_VIRTUALENV=false
-complete -C aws_completer aws
